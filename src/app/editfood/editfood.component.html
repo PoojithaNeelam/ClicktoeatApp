@@ -1,0 +1,64 @@
+<div class="bgimg">
+<div class="container">
+    <div class="row">
+       <div class="col-sm-3"></div>
+        <div   class="col-sm-6 m-3">
+            <form #formRef='ngForm' (ngSubmit)="addFoodItem(formRef)" class="row g-3 mx-auto" >
+                <div class="container text-center">
+                    <h2 style="color: white">Edit Food Item</h2>
+                </div>
+                <!--food type-->
+                <div class="container form-group ">
+                    <label class="text-white" for="foodtype">Food Type</label>
+                    <select  id="foodtype" class="form-select form-select-md" name="foodtype" #ref="ngModel" required [(ngModel)]="editFoodObj.foodtype">
+                        
+                        <option value="{{foodmenu}}" *ngFor="let foodmenu of menuArray">{{foodmenu}}</option>
+                    </select>
+                </div>
+                
+                <!--Restaurent name-->
+                <div class="container form-group">
+                    <label for="rn" class="form-label text-white" >Restaurent name</label>
+                    <input type="text" id="rn" class="form-control" name="restname" placeholder="Enter restaurent name" [(ngModel)]="editFoodObj.restname" >
+                </div>
+                
+                <!--Restaurent id-->
+                <div class="container form-group">
+                <label for="Rid" class="form-label text-white" >Restaurent ID</label>
+                <input type="text" id="Rid" class="form-control" name="RestaurentID" placeholder="Enter restaurent Id" [(ngModel)]="editFoodObj.RestaurentID" >
+            </div>
+    
+    
+             <!--Food item name-->
+             <div class="container form-group">
+                <label for="fin" class="form-label text-white" >Food Item name</label>
+                <input type="text" id="fin" class="form-control" name="fooditemname" placeholder="Enter food item name" [(ngModel)]="editFoodObj.fooditemname">
+            </div>
+
+            <!--food item Id-->
+            <div class="container form-group">
+                <label for="Fid" class="form-label text-white" >Food Item ID</label>
+                <input type="text" id="Fid" class="form-control" name="foodItemID" placeholder="Enter food item Id" [(ngModel)]="editFoodObj.foodItemID" >
+            </div>
+            
+            <!--price of food item-->
+            <div class="container form-group">
+                <label for="Price" class="form-label text-white" >Price</label>
+                <input type="number" id="price" class="form-control" name="Price" placeholder="Enter the price of item"  [(ngModel)]="editFoodObj.Price" >
+            </div>
+            
+        
+         
+            <div class="my-5 ">
+                <button  type="submit" class="btn btn-warning" >Save</button>
+                
+            </div>
+        
+            </form>
+            </div>
+    <div class="col-sm-3"></div> 
+    </div>
+    
+    </div>
+    </div>
+    

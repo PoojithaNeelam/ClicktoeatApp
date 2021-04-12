@@ -1,0 +1,10 @@
+.col-md-3 ul li a:hover{
+    background-color: aliceblue;
+}
+
+.bg-img{
+    background-image: url(../../assets/image.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,79 @@
+<!--<app-usernavbar></app-usernavbar>-->
+<!--<div class="container my-5">
+    <div class="row">
+        <div class="col-3" *ngFor = "let fooditem of nonvegArray ">
+            <div *ngIf="fooditem.status">
+            <div class="card">
+                <div class="card-title">
+                    <img [src]="fooditem.photo" alt = "photo" height="220px"  class="card-img-top">
+                </div>
+                <div class="card-body text-center">
+                    
+    <div class="card-title  fw-bold my-2"> Name:{{fooditem.restname}}</div>
+        <div class="card-text  fw-bold my-2">Food Item Name:{{fooditem.fooditemname}}</div>
+            <div class="card-text  fw-bold my-2">Amount:{{fooditem.Price}}</div>
+                <button class="btn  text-white mx-2" (click)="edit(fooditem)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                <button class="btn " (click)="delete(fooditem)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>-->
+    <!--<div class="container my-5">
+        <div class="row  row-cols-md-3 row-cols-sm-2 row-cols-2 g-3 g-md-5">
+            <div class="col" *ngFor = "let fooditem of nonvegArray">
+                <div *ngIf="fooditem.status">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img [src]="fooditem.photo" alt = "photo" height="220px"  class="card-img-top">
+                        <div class="card-title  fw-bold my-2">Food Item Name:{{fooditem.fooditemname}}</div>
+                        <div class="card-text  fw-bold my-2">Restaurant Name:{{fooditem.restname}}</div>
+                        <div class="card-text  fw-bold my-2">Price: &#8377;{{fooditem.Price}}</div>
+                        <button class="btn btn-warning m-2" (click)="addtocart(fooditem)">Add</button>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>-->
+    <a style="font-family: Lobster; font-size: 30px;" class="navbar-brand nav-link text-dark text-center">Welcome ,{{username}}</a>
+    <div class="container my-5">
+      <div class="row">
+        
+        <div class="col-sm-3"  style="background-color : #021e2c; height: 400px;">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                    <ul class="navbar-nav row">
+                        <input type="text" placeholder="search here" class="form-control mt-2 col-12 mx-auto" style="width:200px;" [(ngModel)]="searchText">
+                        <a class="btn text-white col-12 mt-1" (click)="veg()">Vegetarian</a>
+                        
+                        <a class="btn text-white col-12" (click)="nonveg()">Non-Vegetarian</a>
+                        <a class="btn text-white col-12" (click)="icecream()">Desserts</a>
+                        <!--<a class="btn text-white col-12">Starters</a>
+                        <a class="btn text-white col-12">Fastfood</a>
+                        <a class="btn text-white col-12">Bewerages</a>-->
+                    </ul>
+                    </nav>
+                </div>
+     
+        <div class="col-sm-9">
+          <div class="container my-5">
+            <div class="row  row-cols-md-2 row-cols-sm-1 row-cols-2 g-3 g-md-5">
+                <div class="col" *ngFor = "let fooditem of nonvegArray | filter:searchText">
+                    <div *ngIf="fooditem.status">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <img [src]="fooditem.photo" alt = "photo" height="220px"  class="card-img-top">
+                            <div class="card-title  fw-bold my-2">{{fooditem.fooditemname}}</div>
+                            <div class="card-text  fw-bold my-2">{{fooditem.restname}}</div>
+                            <div class="card-text  fw-bold my-2"> &#8377;{{fooditem.Price}}</div>
+                            <button class="btn btn-warning m-2" (click)="addtocart(fooditem)">Add</button>
+                        </div>
+                      </div>
+                </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    

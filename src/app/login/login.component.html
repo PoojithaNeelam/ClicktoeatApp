@@ -1,0 +1,166 @@
+
+<!--<div class=" card bg-dark text-white">
+  <img style="height: 600px; opacity: 0.3;" src="../../assets/loginimage.jpeg" class="card-img" alt="Background-Image">
+  <app-precautions></app-precautions>
+  <app-footer></app-footer>
+  <div class="card-img-overlay">
+    <div class="row slide-left">
+      <div class="col-sm-6"></div>
+      <div style="background-color: #c4dfe6;" class="col-sm-6  border border-3 border-info rounded">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              
+              <img style="height: 350px; width: 200px" src="../../assets/bhagyaloginimg.jpg" class="mt-4" alt="">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <form #formRef='ngForm'(ngSubmit)="onSubmit(formRef)" class=" row g-3 mx-auto " >
+              
+                    
+                radio buttons-->
+                 <!-- <div class="container form-group">
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="usertype" id="inlineRadio1" value="user" ngModel>
+                          <label class="form-check-label" style="color: rgb(19, 17, 18);" for="inlineRadio1">User</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="usertype" id="inlineRadio2" value="admin" ngModel>
+                          <label style="color: rgb(19, 17, 18);" class="form-check-label " for="inlineRadio2">Admin</label>
+                        </div>
+                  </div>
+                   user name-->
+                    <!--<div class="form-group col-md-8">
+                      <label for="un" class="form-label" style="color: rgb(19, 17, 18);" >Username</label>
+                      <input type="text" class="form-control" id="un" name="username" placeholder="Username" required #ref1="ngModel" ngModel autocomplete="off"> 
+                    </div>
+             user name validation-->
+              <!--<div class="text-danger" *ngIf="(ref1.touched || formRef.submitted) && (ref1.errors?.required)">
+                Please enter the username
+              </div>
+              
+              password-->
+                    <!--<div class="col-md-8">
+                      <label for="pw" class="form-label" style="color: rgb(19, 17, 18);" >Password</label>
+                      <input type="password" class="form-control" id="pw" name="password" placeholder="password" required #ref2="ngModel" ngModel autocomplete="off">
+                    </div>
+                   password validation-->
+                    <!--<div class="text-danger" *ngIf="(ref2.touched || formRef.submitted)&& (ref2.errors?.required)">
+                      Please enter the password
+                    </div>
+              
+              
+                    <div class="col-12 my-5">
+                      <button  type="submit" class="btn btn-warning " >Login</button>
+                    </div>
+              
+                   
+              </form></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+  
+          <div class="col-sm-6 ">
+            <p class="text-dark">Don't have an account? Please Register First.</p>
+            <button class="btn  mb-3 btn-warning" (click)="register()">Register here!!</button>
+          </div>
+          <div class="col-sm-6"></div>
+          
+        
+        </div>
+        </div>
+
+</div>
+</div>
+</div>-->
+
+<div class="bg-img">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-3">
+  
+          </div>
+          <div class="col-sm-6">
+              
+                  <form #formRef="ngForm" class="form container m-5" (ngSubmit)="onSubmit(formRef)" action="/action_page.php" >
+                    <!-- (ngSubmit)="ref.form.valid && onSubmit(ref)" -->
+                    <h4 class="text-center text-white" style="font-family: 'Dancing Script', cursive;
+                    font-size:40px;">Good food never wait</h4>
+              
+                  <div class="form-check">
+                      <input class="form-check-input " type="radio" id="user" name="usertype" value="user" ngModel>
+                      <label class="form-check-label text-white" for="user">User</label>
+                  </div>
+              
+                  <div class="form-check">
+                      <input class="form-check-input " type="radio" id="admin"  name="usertype" value="admin" ngModel checked>
+                      <label class="form-check-label text-white" for="admin">Admin</label>
+                  </div>
+              
+                  <!-- Name -->
+                  <div class="form-floating mb-2">
+                  
+                  <input type="text" class="form-control" id="name" placeholder="Enter Username" name="username" required  ngModel #ref1="ngModel" autocomplete="off">
+                  <label for="name" class="text-white">Username</label>
+              </div>
+                  <!-- validation for name -->
+                  <div *ngIf="formRef.submitted || ref1.invalid  && (ref1.dirty || ref1.touched)" class="text-danger">
+              
+                  <div  *ngIf="ref1.errors?.required">
+                          Username is required
+                  </div>
+              
+                  </div>
+              
+                  <!-- Password -->   
+                  <div class="form-floating mb-2">
+                  
+                  <input type="password" class="form-control" id="pw" placeholder="Enter Password" name="password" ngModel required minlength ="8" pattern="^(?=.*?[A-Z])(?=.*?[0-9])[A-Za-z0-9]*$" ngModel #ref2="ngModel" autocomplete="off">
+                  <label for="pw" class="text-white">Password</label>
+              </div>
+                  <!-- validation of Password -->
+                  <div *ngIf="formRef.submitted || ref2.invalid  && (ref2.dirty || ref2.touched)" class="text-danger">
+              
+                    <div  *ngIf="ref2.errors?.required">
+                      Password is required
+                    </div>
+                    <div  *ngIf="ref2.errors?.minlength">
+                      Minimum Length must be atleast 8 characters
+                    </div>
+                    <div  *ngIf="ref2.errors?.pattern">
+                      Pattern must atleast  One Uppercase letter and one number
+                    </div>
+              
+                  </div>
+              
+                  <button class="btn col-12 text-white py-2 fs-4" style="background-color: #67f5b5;">Login</button>
+              
+                  <div class="row">
+  
+                    <div class="col-sm-6 ">
+                      <p class="text-white">Don't have an account? Please Register First.</p>
+                      <button class="btn  mb-3 btn-warning" (click)="register()">Register here!!</button>
+                    </div>
+                    <div class="col-sm-6"></div>
+                    
+                  
+                  </div> 
+                </form>
+           </div>
+  
+          <div class="col-sm-3">
+  
+          </div>
+  
+      </div>
+  
+  
+
+</div>
+</div>
+
+
+
+
+

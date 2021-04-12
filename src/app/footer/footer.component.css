@@ -1,0 +1,9 @@
+.footer-border{
+    border-top: 4px solid #fff;
+  } 
+  .footer-element{
+    float: left;
+  }
+  .social-media-icons{
+    float:right;
+  }

@@ -1,0 +1,35 @@
+
+<div class="bg-img">
+<div style="background-color: #021e2c;" class="container-fluid ">
+    <div class="row">
+      <div class="col-sm-6">
+        <h4  style="font-family: Lobster; font-size: 30px;" class="text-light p-4">welcome,{{username}}</h4>
+      </div>
+     
+    </div>
+  </div>
+
+    
+  <div class="row p-5">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-4">
+      <div class="card" style="width: 16rem;">
+        <img src="../../assets/logo2.jpeg" class="img-thumbnail" alt="...">
+        <div class="card-body">
+          <a class="nav-link text-white btn " (click)="addfooditem()" routerLink="addfooditem" style="background-color: #DC143c ;font-weight: normal; font-family: Georgia, 'Times New Roman', Times, serif;">Add Food Items</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card" style="width: 16rem;">
+        <img src="../../assets/readfooditem.jpeg" class="img-thumbnail" alt="...">
+
+  <div class="card-body">
+        <a class="nav-link text-white btn " (click)="readfooditem()" routerLink="readfooditem" style="background-color: #DC143c; font-weight: normal; font-family: Georgia, 'Times New Roman', Times, serif;">Read Food Items</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3"></div>
+</div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,55 @@
+<!--<div class="container mt-5">
+    <table class="table ">
+       
+            <th>Restaurent Name</th>
+            <th>Restaurent ID</th>
+            <th>Food Item Name</th>
+            <th>Price</th>
+      
+        <tr *ngFor="let fooditem of foodArray">
+            <div *ngIf="fooditem.status">
+            <td>{{fooditem.restname}}</td>
+            <td>{{fooditem.RestaurentID}}</td>
+            <td>{{fooditem.fooditemname}}</td>
+            <td>{{fooditem.Price}}</td>
+           <td>
+               <button class="btn  text-dark" (click)="edit(fooditem)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+           </td>
+           <td>
+            <button class="btn text-dark" (click)="delete(fooditem)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </td>
+        </div>
+        </tr>
+    
+    </table>
+</div>-->
+
+
+
+<div class="container my-5">
+  
+        <div class="row row-cols-1 row-cols-sm-4 g-4" style="justify-content: center;">
+        <div class="col-3" *ngFor = "let fooditem of foodArray | search : searchItem">
+            <div *ngIf="fooditem.status">
+            <div class="card" >
+                <div class="card-title">
+                    <img [src]="fooditem.photo" alt = "photo" height="220px"  class="card-img-top">
+                </div>
+                <div class="card-body text-center" >
+                    
+    <div class="card-title  fw-bold my-2"> {{fooditem.restname}}</div>
+        <div class="card-text  fw-bold my-2">{{fooditem.fooditemname}}</div>
+            <div class="card-text  fw-bold my-2">Amount:{{fooditem.Price}}</div>
+               <button class="btn text-white mx-2" style="background-color: rgb(61, 61, 199);" (click)="edit(fooditem)"><i class="fa fa-pencil-square" aria-hidden="true"></i>
+                </button>
+                <button class="btn text-white mx-2" style="background-color: rgb(177, 32, 32);" (click)="delete(fooditem)"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+            
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  
+

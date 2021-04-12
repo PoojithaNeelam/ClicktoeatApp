@@ -1,0 +1,94 @@
+
+    <!--<tr *ngFor="let cartitem of cartArray;">
+        <td>{{cartitem.restname}}</td>
+        <td>{{cartitem.RestaurentID}}</td>
+        <td>{{cartitem.foodtype}}</td>
+        <td>{{cartitem.Price}}</td>
+        <td>
+            <div class="d-flex">
+            <button type="button"  class="minus rounded-circle" (click)="minus(cartitem)">-</button>
+            <h2 class="m-2">{{cartitem.i}}</h2>
+            <button type="button " class="minus border rounded-circle" (click)="plus(cartitem)">+</button>
+        </div>
+         
+</td>
+<td>
+    <button class="btn bg-danger text-dark" (click)="delete(cartitem)">X</button>
+</td>
+        
+    </tr>
+        
+    </table>
+</div>-->
+<div class="container mt-2">
+    <table class="text-dark  table table-borderd  table-stripped">
+        <thead class="table-primary">
+            <tr>
+                <th >Restaurent name</th>
+                <th>Image</th>
+                <th>Food Item Name</th>
+                <th>Food Item Id</th>
+                <th>price</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cartitem of cartArray" class="text-dark">
+           
+            <td>{{cartitem.restname}}</td>
+            <td><img [src]="cartitem.photo" class="img-thumbnail" alt="" height="100px" width="100px"></td>
+            <td>{{cartitem.fooditemname}}</td>
+            <td>{{cartitem.foodItemID}}</td>
+            <td>{{cartitem.Price}}</td>
+            <!--<td>
+                <div class="bg-success d-flex" >
+                   <button type="button"  class="minus  border" (click)="minus(cartitem)">-</button>
+                      <h2>{{cartitem.i}}</h2>
+                   <button type="button" class="plus  border" (click)="plus(cartitem)">+</button>
+               </div>
+            </td>-->
+
+            <td>
+                <div class="d-flex">
+                <button type="button"  class="minus rounded-circle" (click)="minus(cartitem)">-</button>
+                <h2 class="m-2">{{cartitem.quantity}}</h2>
+                <button type="button " class="minus border rounded-circle" (click)="plus(cartitem)">+</button>
+            </div>
+            </td>
+           <!--<td>
+               <button class="btn bg-success text-dark" (click)="edit(fooditem)">Update</button>
+           </td>-->
+           <td>
+            <button class="btn bg-danger text-dark " (click)="delete(cartitem)">X</button>
+        </td>
+
+        </tr>
+    </tbody>
+    </table>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-5"></div>
+   
+    <div class="col-2"></div>
+     
+    <div class="col-5">
+        <p style="font-size: larger; font-weight: bolder;" class=" text-dark ">Total Price:{{sum}}</p>
+    </div>
+    </div>
+
+
+<div class="row">
+    <div class="col-5"></div>
+   
+    <div class="col-2"></div>
+     
+    <div class="col-5">
+        <button class="btn py-3 text-white btn-warning"  (click)="address()">Proceed to checkout</button>
+    </div>
+    </div>
+<!--<div *ngIf="!cartArray?.length">
+    <h4 class="text-center text-danger my-3">No food items found in cart</h4>
+</div>-->

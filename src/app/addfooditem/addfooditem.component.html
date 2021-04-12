@@ -1,0 +1,77 @@
+<div class="bgimg">
+<div class="container">
+<div class="row">
+   <div class="col-sm-3"></div>
+    <div   class="col-sm-6 m-3">
+        <form #formRef='ngForm' (ngSubmit)="addFoodItem(formRef)" class="row g-3 mx-auto" >
+            <div class="container text-center">
+                <h2 style="color:white">Add Food Item</h2>
+            </div>
+            <!--Food type-->
+            <div class="container form-group ">
+                <label class="text-white" for="foodtype">Food Type</label>
+                <select  id="foodtype" class="form-select form-select-md" name="foodtype" #ref="ngModel" required ngModel>
+                    
+                    <option value="{{foodmenu}}" *ngFor="let foodmenu of menuArray">{{foodmenu}}</option>
+                </select>
+            </div>
+
+            <!--food type validation-->
+            <div class="text-danger" *ngIf="(ref.touched || formRef.submitted) && (ref.errors?.required)">
+                Please select the Food Type from the given List
+              </div>
+            
+            <!--Restaurent name-->
+            <div class="container form-group">
+                <label for="rn" class="form-label text-white" >Restaurent name</label>
+                <input type="text" id="rn" class="form-control" name="restname" placeholder="Enter restaurent name" ngModel>
+            </div>
+            
+            <!--Restaurent id-->
+            <div class="container form-group">
+            <label for="Rid" class="form-label text-white" >Restaurent ID</label>
+            <input type="text" id="Rid" class="form-control" name="RestaurentID" placeholder="Enter restaurent Id" ngModel >
+        </div>
+
+
+
+
+         <!--Food item name-->
+         <div class="container form-group">
+            <label for="fin" class="form-label text-white" >Food Item name</label>
+            <input type="text" id="fin" class="form-control" name="fooditemname" placeholder="Enter food item name" ngModel>
+        </div>
+
+        <!--Food item Id-->
+        <div class="container form-group">
+            <label for="Fid" class="form-label text-white" >Food Item ID</label>
+            <input type="text" id="Fid" class="form-control" name="foodItemID" placeholder="Enter food item Id" ngModel >
+        </div>
+        
+        <!--price of food item-->
+        <div class="container form-group">
+            <label for="Price" class="form-label text-white" >Price</label>
+            <input type="number" id="price" class="form-control" name="Price" placeholder="Enter the price of item"  ngModel >
+        </div>
+        
+       <!--upload image-->
+       <div class="form-group mb-3">
+        <label for="uploadphoto" class="form-label">
+          <input type="file" class="form-control" (change)="incomingfile($event)" name="photo" accept="image/*" placeholder="Upload file">
+        </label>
+      </div>    
+      
+       
+        <div class="my-5 ">
+            <button  type="submit" class="btn btn-warning" >Add</button>
+            
+        </div>
+    
+        </form>
+        </div>
+<div class="col-sm-3"></div> 
+</div>
+</div>
+</div>
+
+

@@ -1,0 +1,42 @@
+
+
+<nav  class="navbar navbar-expand-md navbar-light bg-warning  " >
+  <div class="container-fluid">
+   
+    <a style="font-family: Lobster; font-size: 30px;" class="navbar-brand nav-link text-dark" routerLink="clicktoeat"> <img src="../../assets/logo1.jpeg" alt="" height="50px" width="50px">Click to Eat </a>
+    <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span  class="navbar-toggler-icon"></span>
+    </button>
+    
+   
+    <div  class="collapse navbar-collapse justify-content-end"  id="navbarNav">
+      <ul  class="navbar-nav  " >
+        
+        <li style="margin-inline-end: 100px;" class="nav-item">
+          <a *ngIf="!logoff()" style=" font-weight: normal; font-family: Georgia, 'Times New Roman', Times, serif;"  class="nav-link  fs-4 text-dark" routerLink="loginform" >Login</a>
+        </li>
+        <li style="margin-inline-end: 100px;" class="nav-item">
+          <a *ngIf="!logoff()" style=" font-weight: normal; font-family: Georgia, 'Times New Roman', Times, serif;" class="nav-link  fs-4 text-dark" routerLink="signup">Sign-Up</a>
+        </li>
+       
+        <li class="nav-item">
+          <a *ngIf="logoff()" style=" font-weight: normal; font-family: Georgia, 'Times New Roman', Times, serif;"  class="nav-link fs-4 text-dark" routerLink="" (click)="logOutUser()">Logout</a>
+        </li>
+        <li style="margin-inline-end: 100px;" class="nav-item">
+          <a *ngIf="logStatus" style="font-weight: normal;font-family: Georgia, 'Times New Roman', Times, serif; " class="nav-link fs-4 text-dark" routerLink="help">Help</a>
+          <a *ngIf="!logStatus" style="font-weight: normal;font-family: Georgia, 'Times New Roman', Times, serif; " class="nav-link fs-4 text-dark" routerLink="help">Help</a>
+        
+        </li>
+        <li style="margin-inline-end: 100px;" class="nav-item">
+          <a *ngIf="logoff()" style=" font-weight: normal; " class="nav-link  fs-4" routerLink="cart"><sup class="text-dark">{{userCartsize}}</sup><i style="font-size: 30px;" class="fa fa-cart-arrow-down text-dark pb-2" ></i></a>
+        </li>
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+  
+
+ 

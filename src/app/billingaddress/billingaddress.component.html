@@ -1,0 +1,100 @@
+<!-- billing address-->
+<div class="container">
+    <div class="row">
+       
+        <div class="col-sm-6">
+            <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)" class="form container m-5" >
+                <h4 class="text-center" style="font-family: 'Dancing Script', cursive; font-size:30px;">Billing Address</h4>
+            
+                <!--name-->
+                <div class="d-flex">
+                    <div class="col-sm-6">
+                       <!--First Name-->
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control" id="fn" name="firstname" ngModel required #ref1="ngModel">
+                            <label for="fn" class="text-dark">First Name</label>
+                        </div>
+
+                        <!--validation for first name-->
+                        <div class="text-danger" *ngIf="(ref1.touched || formRef.submitted) && (ref1.errors?.required)">
+                            First name is required
+                        </div>
+                      
+                    </div>
+                    <div class="col-sm-6">
+                        <!--Last Name-->
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control" id="ln" name="lastname" ngModel required #ref2="ngModel">
+                            <label for="ln" class="text-dark">Last Name</label>
+                        </div>
+                         <!--validation for first name-->
+                         <div class="text-danger" *ngIf="(ref2.touched || formRef.submitted) && (ref2.errors?.required)">
+                            Last name is required
+                        </div>
+                    </div>
+                </div>
+
+                <!--Address-->
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" id="ad" name="address" ngModel required #ref3="ngModel">
+                    <label for="ad" class="text-dark">Address</label>
+                </div>
+
+                 <!--validation for first name-->
+                 <div class="text-danger" *ngIf="(ref3.touched || formRef.submitted) && (ref3.errors?.required)">
+                    Address is required
+                </div>
+
+                <!--Flat number-->
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" id="afn" name="flatnumber" ngModel required #ref4="ngModel">
+                    <label for="afn" class="text-dark">Apartment,Flat number,etc..</label>
+                </div>
+
+                 <!--validation for first name-->
+                 <div class="text-danger" *ngIf="(ref4.touched || formRef.submitted) && (ref4.errors?.required)">
+                    This field is required
+                </div>
+
+                <!--City-->
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" id="city" name="city" ngModel required #ref5="ngModel">
+                    <label for="city" class="text-dark">City</label>
+                </div>
+
+                 <!--validation for first name-->
+                 <div class="text-danger" *ngIf="(ref5.touched || formRef.submitted) && (ref5.errors?.required)">
+                    City is required
+                </div>
+
+                <!--Country-->
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" id="country" name="country" ngModel required #ref6="ngModel">
+                    <label for="country" class="text-dark">Country</label>
+                </div>
+
+                 <!--validation for first name-->
+                 <div class="text-danger" *ngIf="(ref6.touched || formRef.submitted) && (ref6.errors?.required)">
+                    Country is required
+                </div>
+
+                <!--pincode-->
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" id="pc" name="pincode" ngModel required #ref7="ngModel">
+                    <label for="pc" class="text-dark">Pincode</label>
+                </div>
+
+                 <!--validation for first name-->
+                 <div class="text-danger" *ngIf="(ref7.touched || formRef.submitted) && (ref7.errors?.required)">
+                    Pincode is required
+                </div>
+
+                <!--submit button-->
+                <button class="btn btn-warning" type="submit" (ngSubmit)="onSubmit(formRef)">Continue to Checkout..</button>
+
+
+            </form>
+        </div>
+        <div class="col-sm-6"></div>
+    </div>
+</div>

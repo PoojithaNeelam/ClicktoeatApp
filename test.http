@@ -1,0 +1,20 @@
+POST http://localhost:3000/user/createuser
+Content-Type: application/json
+
+{
+    "email":"pooji@gmail.com",
+    "username":"Pooji",
+    "password":"Poojitha1",
+    "mobilenumber":"7337375247"
+}
+###
+POST http://localhost:3000/admin/createadmin
+Content-Type: application/json
+
+{
+    "username":"admin",
+    "password":"Admin123"
+}
+
+###
+GET  http://localhost:3000/user/getuser/bhagya

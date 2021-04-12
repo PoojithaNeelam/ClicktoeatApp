@@ -1,0 +1,32 @@
+
+<nav style="background-color: #021e2c;" class="navbar navbar-expand-md navbar-light ">
+    <div class="container-fluid">
+      
+      
+     
+      <div  class="collapse navbar-collapse justify-content-end"  id="navbarcategory">
+        <ul  class="navbar-nav  " >
+          
+         
+          <li style="margin-inline-end: 100px;" class="nav-item">
+            <a style="font-weight: normal;font-family: Georgia, 'Times New Roman', Times, serif; " class="nav-link fs-4 text-white"  (click)="veg()">Veg</a>
+          </li>
+          <li style="margin-inline-end: 100px;" class="nav-item">
+            <a style=" font-weight: normal; font-family: Georgia, 'Times New Roman', Times, serif;" class="nav-link fs-4 text-white" (click)="nonveg()" >Non-Veg</a>
+          </li>
+          <li style="margin-inline-end: 100px;" class="nav-item">
+            <a style=" font-weight: normal; font-family: Georgia, 'Times New Roman', Times, serif;" class="nav-link fs-4 text-white" (click)="icecream()" >Ice-creams</a>
+          </li>
+         
+        </ul>
+      </div>
+      <a style="font-family: Lobster; font-size: 30px;" class="navbar-brand nav-link text-white">Welcome ,{{username}}</a>
+      <!--<button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarcategory" aria-controls="navbarcategory" aria-expanded="false" aria-label="Toggle navigation">
+        <span  class="navbar-toggler-icon"></span>
+      </button>-->
+     
+    </div>
+  </nav>
+  
+  <router-outlet></router-outlet>
+    

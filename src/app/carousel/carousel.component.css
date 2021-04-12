@@ -1,0 +1,11 @@
+.col-3 img:hover{
+    transform: scale(1.1);
+}
+.col-3 img{
+    border-radius: 5px;
+    border: 2px;
+}
+.col-3{
+    padding: 20px;
+    margin: 2px solid black;
+}
