@@ -11,7 +11,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter'
 export class FooditemlistComponent implements OnInit {
 
   searchItem:string;
-  searchText;
+  ;searchText
   username;
   foodArray=[];
   searchObj=[];

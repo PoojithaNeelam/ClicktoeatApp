@@ -28,7 +28,7 @@
                 <th>Image</th>
                 <th>Food Item Name</th>
                 <th>Food Item Id</th>
-                <th>price</th>
+                <th>Price</th>
                 <th>Quantity</th>
                 <th>Remove</th>
             </tr>
@@ -36,11 +36,11 @@
         <tbody>
             <tr *ngFor="let cartitem of cartArray" class="text-dark">
            
-            <td>{{cartitem.restname}}</td>
+            <td style="font-weight: normal;font-family: Georgia, 'Times New Roman', Times, serif; ">{{cartitem.restname}}</td>
             <td><img [src]="cartitem.photo" class="img-thumbnail" alt="" height="100px" width="100px"></td>
-            <td>{{cartitem.fooditemname}}</td>
-            <td>{{cartitem.foodItemID}}</td>
-            <td>{{cartitem.Price}}</td>
+            <td style="font-weight: normal;font-family: Georgia, 'Times New Roman', Times, serif; ">{{cartitem.fooditemname}}</td>
+            <td style="font-weight: normal;font-family: Georgia, 'Times New Roman', Times, serif; ">{{cartitem.foodItemID}}</td>
+            <td> &#8377;{{cartitem.Price}}</td>
             <!--<td>
                 <div class="bg-success d-flex" >
                    <button type="button"  class="minus  border" (click)="minus(cartitem)">-</button>

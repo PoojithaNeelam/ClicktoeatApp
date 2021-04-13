@@ -23,25 +23,26 @@ export class SignupComponent implements OnInit {
   onSubmit(formRef){
     
     this.submitted=true;
-    console.log("signup details",formRef)
+    if(!formRef.invalid){
+      console.log("signup details",formRef)
 
-    this.us.saveUserData(formRef).subscribe(
-      res=>{
-        if(res['message']="Registration done successfully"){
-          this.toastr.success("Account created successfully...Login to continue!!!")
-          this.router.navigateByUrl("/loginform")
+      this.us.saveUserData(formRef).subscribe(
+        res=>{
+          if(res['message']="Registration done successfully"){
+            this.toastr.success("Account created successfully...Login to continue!!!")
+            this.router.navigateByUrl("/loginform")
+          }
+          else{
+            this.toastr.error("Please enter details to signup")
+          }
+        },
+        err=>{
+          this.toastr.error('Error in user registration...Try again!!!')
+          console.log("Error in user signup",err)
         }
-        else{
-          this.toastr.error("Please enter details to signup")
-        }
-      },
-      err=>{
-        this.toastr.error('Error in user registration...Try again!!!')
-        console.log("Error in user signup",err)
-      }
-    )
-    
-    
+      )
+     
+    }
+    }
    
-  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UserService } from '../user.service';
+import { UsercartupdateService } from '../usercartupdate.service';
 
 @Component({
   selector: 'app-defaultnavbar',
@@ -14,14 +15,28 @@ export class DefaultnavbarComponent implements OnInit {
   $subs: Subscription;
   userCartsize;
   username;
-  constructor( private us:UserService, private router:Router) { }
+  constructor( private us:UserService, private router:Router, private ucs:UsercartupdateService) { }
 
   ngOnInit(): void {
+    this.username=localStorage.getItem("username")
+    console.log("User name for count is",this.username)
     this.$subs=this.us.receiveloginState().subscribe(d=>{
       this.logStatus=d;
       this.cartStatus();
+      this.ucs.watchStorage().subscribe(
+        res=>{
+          this.userCartsize=res;
+        },
+        err=>{}
+      )
     })
     
+    this.ucs.getCartCount(this.username).subscribe(
+      res=>{
+        this.userCartsize=res['message']
+        console.log("User cart size is",this.userCartsize)
+      }
+    )
   }
 
   //cartsize count

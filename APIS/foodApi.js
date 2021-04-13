@@ -83,7 +83,7 @@ console.log(req.body)
 }))
 
 foodApiObj.get("/getFoodItems", errorhandler(async(req,res)=>{
-    let foodArray=await Food.find()
+    let foodArray=await Food.find({status:true})
     res.send({message:foodArray})
 }))
 

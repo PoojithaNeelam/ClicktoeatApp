@@ -140,11 +140,14 @@ cartApiObj.get("/getcartitems/:username",errorhandler(async(req,res)=>
 }))*/
 
 cartApiObj.put("/updatefood/:username",errorhandler(async (req,res)=>{
-    let count = await Cart.updateOne({$and:[{username:req.params.username},{foodItemID:req.body.foodItemID}]},{quantity:req.body.quantity,Price:req.body.Price})
+    await Cart.updateOne({$and:[{username:req.params.username},{foodItemID:req.body.foodItemID}]},{quantity:req.body.quantity,Price:req.body.Price})
     /*let success = await Cart.find({username:req.params.username})
     console.log("success is",success)
     res.send({message:"updated successfully",a:success})*/
+    let count=await Cart.find({username:req.body.username})
+    res.send({message:"Updated successfully",userObj:count})
     console.log(count)
+   
 }))
 
 
@@ -164,14 +167,23 @@ cartApiObj.get("/getcartsize/:username",errorhandler(async (req,res)=>{
     let count=0;
     let usercart=await Cart.find({username:req.params.username})
     console.log("user cart size",usercart)
-    for (let x of usercart) {
-        count += x.quantity;
-      }
-      res.send({ message: count })
-    /*let userCartsize=usercart.length;
+    
+    let userCartsize=usercart.length;
     console.log(userCartsize)
-    res.send({cartsize:userCartsize,usercart:usercart})*/
+    res.send({cartsize:userCartsize,usercart:usercart})
 
+}))
+
+cartApiObj.get("/getcartcount/:username",errorhandler(async (req,res)=>{
+    console.log("Cart count of",req.params.username)
+    let success = await Cart.find({username:req.params.username})
+    let count= 0
+    for(let i of success){
+        count = count + i.quantity
+    }
+    console.log(count)
+    
+    res.send({message:count})
 }))
 
 module.exports=cartApiObj;
