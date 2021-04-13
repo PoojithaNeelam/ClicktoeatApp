@@ -19,7 +19,7 @@ export class UsercartComponent implements OnInit {
   cartArray=[];
   allCartitems: any;
   sum: number=0;
- 
+ cartCount;
   foodArray: any;
   
   constructor(private us:UserService,private router:Router,private checkout:CheckoutService,private toastr:ToastrService, private ucs:UsercartupdateService ) {​​​​​​​​ }​​​​​​​​
@@ -43,7 +43,7 @@ export class UsercartComponent implements OnInit {
       this.checkout.setSum(this.sum)
     },
   )
-  
+  this.cartCount=this.ucs.getCartcount();
   
 }​​
 
@@ -56,7 +56,9 @@ delete(cartitem:any){
     res=>{
       if(res["message"]=="Succesfully deleted"){
         this.cartArray=res["cartArray"]
+        --this.cartCount;
         console.log(this.cartArray)
+        this.ucs.setCartcount(--this.cartCount);
       }
       else{
         alert("Something Went Wrong")

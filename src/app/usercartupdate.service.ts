@@ -25,4 +25,18 @@ export class UsercartupdateService {
     console.log("Cart count of user",username)
     return this.hc.get("/cart/getcartcount/"+username)
   }
+
+  x=0;
+
+private cartcount: BehaviorSubject<any>=new BehaviorSubject(this.x)
+
+setCartcount(cartcount:any){
+  console.log(cartcount)
+       this.cartcount.next(cartcount)
+
+}
+
+getCartcount(){
+  return this.cartcount.asObservable()
+}
 }

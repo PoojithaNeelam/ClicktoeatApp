@@ -98,20 +98,20 @@ cartApiObj.post("/addtocart",errorhandler(async(req,res)=>{
 cartApiObj.get("/getcartitems/:username",errorhandler(async(req,res)=>
 {
     let cartRetriveArray=[];
-    console.log(req.params.username)
+    //console.log(req.params.username)
     let cartObj=await Cart.find({username:req.params.username})
     
    
     for(i=0;i<cartObj.length;i++)
     {
-        console.log(cartObj[i])
+        //console.log(cartObj[i])
         let success = await Food.findOne({$and:[{foodItemID:cartObj[i].foodItemID},{status:true}]})
-        console.log("Admin cart delete is",success)
+        //console.log("Admin cart delete is",success)
         if(success!=null)
         {
             let success2=await Cart.findOne({$and:[{username:req.params.username},{foodItemID:success.foodItemID}]})
            
-           console.log("success2 is",success2)
+          // console.log("success2 is",success2)
 
             //push into array
            cartRetriveArray.push(success2)
@@ -123,7 +123,7 @@ cartApiObj.get("/getcartitems/:username",errorhandler(async(req,res)=>
 
     res.send({message:cartRetriveArray})
    
-    console.log("Cart retrival array is",cartRetriveArray)
+    //console.log("Cart retrival array is",cartRetriveArray)
 }))
 
 
@@ -154,11 +154,11 @@ cartApiObj.put("/updatefood/:username",errorhandler(async (req,res)=>{
 
 
 cartApiObj.post("/deletefood",errorhandler(async (req,res)=>{
-    console.log(req.body)
+    //console.log(req.body)
     let deleteCart= await Cart.deleteOne({$and:[{username:req.body.username},{foodItemID:req.body.foodItemID}]})
-   console.log("Deleted items",deleteCart)
+   //console.log("Deleted items",deleteCart)
    let cartArray=await Cart.find({username:req.body.username})
-   console.log("after deleting",cartArray)
+   //console.log("after deleting",cartArray)
    res.send({message:"Succesfully deleted",cartArray:cartArray})
 }))
 
@@ -177,11 +177,30 @@ cartApiObj.get("/getcartsize/:username",errorhandler(async (req,res)=>{
 cartApiObj.get("/getcartcount/:username",errorhandler(async (req,res)=>{
     console.log("Cart count of",req.params.username)
     let success = await Cart.find({username:req.params.username})
-    let count= 0
+   
+    let carsarray=[]
     for(let i of success){
+         let success1= await Food.findOne({$and:[{foodItemID:i.foodItemID},{status:true}]})
+        
+         if(success1!=null)
+         {
+             let success2= await Cart.findOne({$and:[{username:req.params.username},{foodItemID:i.foodItemID}]})
+            
+ 
+             // push into array
+            carsarray.push(success2)
+            console.log("carsarray",carsarray)
+
+         }
+        
+    }
+    
+    let count= 0
+
+    for(let i of carsarray){
         count = count + i.quantity
     }
-    console.log(count)
+    console.log("Cart count is",count)
     
     res.send({message:count})
 }))

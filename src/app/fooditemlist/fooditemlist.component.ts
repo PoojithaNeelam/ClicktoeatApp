@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter'
+import { UsercartupdateService } from '../usercartupdate.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-fooditemlist',
@@ -11,12 +13,13 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter'
 export class FooditemlistComponent implements OnInit {
 
   searchItem:string;
-  ;searchText
+  searchText;
   username;
   foodArray=[];
   searchObj=[];
   restname:string;
-  constructor(private us:UserService,private router:Router) { }
+  cartCount;
+  constructor(private us:UserService,private router:Router, private ucs:UsercartupdateService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.username=localStorage.getItem("username")
@@ -30,6 +33,8 @@ export class FooditemlistComponent implements OnInit {
         console.log(err)
       }
     )
+
+    this.cartCount= this.ucs.getCartcount();
     
   }
   addtocart(food){
@@ -55,7 +60,11 @@ export class FooditemlistComponent implements OnInit {
         }
         else{
           if(res['message']=="Food item added to cart"){
-            alert(res['message'])
+          
+            this.toastr.success(res['message'])
+            this.cartCount++;
+            this.ucs.setCartcount(this.cartCount++)
+            //alert(res['message'])
           }
           else{
             alert(res['message'])

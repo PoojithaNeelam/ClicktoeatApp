@@ -23,18 +23,15 @@ export class DefaultnavbarComponent implements OnInit {
     this.$subs=this.us.receiveloginState().subscribe(d=>{
       this.logStatus=d;
       this.cartStatus();
-      this.ucs.watchStorage().subscribe(
-        res=>{
-          this.userCartsize=res;
-        },
-        err=>{}
-      )
+     
     })
     
     this.ucs.getCartCount(this.username).subscribe(
       res=>{
         this.userCartsize=res['message']
         console.log("User cart size is",this.userCartsize)
+        this.ucs.setCartcount(this.userCartsize)
+        
       }
     )
   }
