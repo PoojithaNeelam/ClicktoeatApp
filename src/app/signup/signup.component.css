@@ -26,36 +26,35 @@
 }
 
 
-
 .form {
-  -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-          animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-@-webkit-keyframes slide-right {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(50px);
-            transform: translateX(50px);
-  }
+@-webkit-keyframes slide-bottom {
+0% {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
-@keyframes slide-right {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  100% {
-    -webkit-transform: translateX(50px);
-            transform: translateX(50px);
-  }
+100% {
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+}
+}
+@keyframes slide-bottom {
+0% {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+100% {
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+}
+}
+
+#em,#un,#pw,#num{
+  opacity:0.7;
 }
 /*
-#em,#un,#pw,#num{
-  opacity:0.3;
-}
-
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ 
   color: #000;
   opacity:1;

@@ -164,13 +164,21 @@ cartApiObj.post("/deletefood",errorhandler(async (req,res)=>{
 
 
 cartApiObj.get("/getcartsize/:username",errorhandler(async (req,res)=>{
-    let count=0;
+    //let count=0;
     let usercart=await Cart.find({username:req.params.username})
     console.log("user cart size",usercart)
     
     let userCartsize=usercart.length;
     console.log(userCartsize)
     res.send({cartsize:userCartsize,usercart:usercart})
+    let count= 0;
+
+    for(let i of carsarray){
+        count = count + i.quantity
+    }
+    console.log("Cart count is",count)
+    
+    res.send({message:count})
 
 }))
 

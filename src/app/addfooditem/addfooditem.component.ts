@@ -13,7 +13,7 @@ export class AddfooditemComponent implements OnInit {
 
   constructor( private us:UserService, private router:Router,private toastr:ToastrService) { }
 
-  menuArray=["Vegetarian","Non-vegetarian","Desserts"]
+  menuArray=["Vegetarian","Non-vegetarian","Desserts","Bewerages"]
 
   ngOnInit(): void {
   }
@@ -54,6 +54,7 @@ export class AddfooditemComponent implements OnInit {
         if(res['message'] == 'Food item added successfully'){
 
           this.toastr.success(res['message'])
+          this.router.navigateByUrl("/readfooditem")
          // alert(res['message'])
           formRef.reset()
         }

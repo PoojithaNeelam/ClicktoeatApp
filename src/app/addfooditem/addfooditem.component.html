@@ -1,7 +1,6 @@
 <div class="bgimg">
 <div class="container">
 <div class="row">
-   <div class="col-sm-3"></div>
     <div   class="col-sm-6 m-3">
         <form #formRef='ngForm' (ngSubmit)="addFoodItem(formRef)" class="row g-3 mx-auto" >
             <div class="container text-center">
@@ -24,52 +23,69 @@
             <!--Restaurent name-->
             <div class="container form-group">
                 <label for="rn" class="form-label text-white" >Restaurent name</label>
-                <input type="text" id="rn" class="form-control" name="restname" placeholder="Enter restaurent name" ngModel>
+                <input type="text" id="rn" class="form-control" name="restname" placeholder="Enter restaurent name" #restname="ngModel" required ngModel>
+            </div>
+             <!-- restaurant validations-->
+            <div class="text-danger" *ngIf="(restname.touched || formRef.submitted) && (restname.errors?.required)">
+            *Please enter restaurant name
             </div>
             
             <!--Restaurent id-->
             <div class="container form-group">
             <label for="Rid" class="form-label text-white" >Restaurent ID</label>
-            <input type="text" id="Rid" class="form-control" name="RestaurentID" placeholder="Enter restaurent Id" ngModel >
-        </div>
+            <input type="text" id="Rid" class="form-control" name="RestaurentID" placeholder="Enter restaurent Id" #restid="ngModel" required ngModel >
+            </div>
 
-
-
-
+             <!-- restaurant id-->
+             <div class="text-danger" *ngIf="(restid.touched || formRef.submitted) && (restid.errors?.required)">
+                *Please enter restaurant Id
+                </div>
+                
          <!--Food item name-->
          <div class="container form-group">
             <label for="fin" class="form-label text-white" >Food Item name</label>
-            <input type="text" id="fin" class="form-control" name="fooditemname" placeholder="Enter food item name" ngModel>
+            <input type="text" id="fin" class="form-control" name="fooditemname" placeholder="Enter food item name" #foodname="ngModel" required ngModel>
         </div>
+         <!-- fooditem name validation-->
+         <div class="text-danger" *ngIf="(foodname.touched || formRef.submitted) && (foodname.errors?.required)">
+            *Please enter food item name
+            </div>
+            
 
         <!--Food item Id-->
         <div class="container form-group">
             <label for="Fid" class="form-label text-white" >Food Item ID</label>
-            <input type="text" id="Fid" class="form-control" name="foodItemID" placeholder="Enter food item Id" ngModel >
+            <input type="text" id="Fid" class="form-control" name="foodItemID" placeholder="Enter food item Id" #foodid="ngModel" required ngModel >
         </div>
+         <!-- food item id validations-->
+         <div class="text-danger" *ngIf="(foodid.touched || formRef.submitted) && (foodid.errors?.required)">
+            *Please enter food item id
+            </div>
+            
         
         <!--price of food item-->
         <div class="container form-group">
             <label for="Price" class="form-label text-white" >Price</label>
-            <input type="number" id="price" class="form-control" name="Price" placeholder="Enter the price of item"  ngModel >
+            <input type="number" id="price" class="form-control" name="Price" placeholder="Enter the price of item" #Price="ngModel" required ngModel >
         </div>
+         <!-- restaurant validations-->
+         <div class="text-danger" *ngIf="(Price.touched || formRef.submitted) && (Price.errors?.required)">
+            *Please enter food price
+        </div>
+            
         
        <!--upload image-->
-       <div class="form-group mb-3">
-        <label for="uploadphoto" class="form-label">
+       <div class="container form-group mb-3">
+        <label for="uploadphoto" class="form-label text-white " style="width: 100%;"> Choose file
           <input type="file" class="form-control" (change)="incomingfile($event)" name="photo" accept="image/*" placeholder="Upload file">
         </label>
       </div>    
-      
-       
-        <div class="my-5 ">
-            <button  type="submit" class="btn btn-warning" >Add</button>
-            
-        </div>
-    
+      <div>
+        <button  type="submit" class= "btn container mb-2"  style="background-color: #67f5b5;" >Add</button>
+      </div>
         </form>
         </div>
-<div class="col-sm-3"></div> 
+<div class="col-sm-6"></div> 
 </div>
 </div>
 </div>

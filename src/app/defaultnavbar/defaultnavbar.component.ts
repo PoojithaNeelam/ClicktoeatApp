@@ -30,7 +30,7 @@ export class DefaultnavbarComponent implements OnInit {
       res=>{
         this.userCartsize=res['message']
         console.log("User cart size is",this.userCartsize)
-        this.ucs.setCartcount(this.userCartsize)
+        this.ucs.setCartcount(res['message'])
         
       }
     )

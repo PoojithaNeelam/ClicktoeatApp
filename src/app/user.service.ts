@@ -92,6 +92,9 @@ export class UserService {
  geticecream():Observable<any>{
    return this.hc.get("/food/geticecreamitems")
  }
+ getbewerages():Observable<any>{
+  return this.hc.get("/food/getbewerageitems")
+}
 
  cartsize=0
  getInitialCartSize(username):Observable<any>{

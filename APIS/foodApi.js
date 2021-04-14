@@ -68,7 +68,6 @@ console.log(req.body)
         status:req.body.status,
         photo:req.body.photo
 
-
     })
 
     if(await Food.findOne({restname:req.body.restname, fooditemname:req.body.fooditemname,})==null){
@@ -128,18 +127,29 @@ foodApiObj.put("/deleteFood",errorhandler(async (req,res)=>{
 
 
 foodApiObj.get("/getvegitems",errorhandler(async (req,res)=>{
-    let result=await Food.find({foodtype:"Vegetarian"})
+    let result=await Food.find({$and:[{foodtype:"Vegetarian"},{status:true}]})
     res.send({message:result})
 }))
 
 foodApiObj.get("/getnonvegitems",errorhandler(async (req,res)=>{
-    let result=await Food.find({foodtype:"Non-vegetarian"})
+    let result=await Food.find({$and:[{foodtype:"Non-vegetarian"},{status:true}]})
     res.send({message:result})
 }))
 
+
+
 foodApiObj.get("/geticecreamitems",errorhandler(async (req,res)=>{
-    let result=await Food.find({foodtype:"Desserts"})
+    let result=await Food.find({$and:[{foodtype:"Desserts"},{status:true}]})
     res.send({message:result})
 }))
+
+foodApiObj.get("/getbewerageitems",errorhandler(async (req,res)=>{
+    let result=await Food.find({$and:[{foodtype:"Bewerages"},{status:true}]})
+    res.send({message:result})
+}))
+
+
+
+
 //export api to server
 module.exports=foodApiObj

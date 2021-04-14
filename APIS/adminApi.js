@@ -26,7 +26,7 @@ require("dotenv").config()
 
 
 //create user
-adminApiObj.post("/createadmin",validateToken,errorhandler(async (req,res)=>{
+adminApiObj.post("/createadmin",errorhandler(async (req,res)=>{
 
 console.log(req.body)
     let hashedpassword=await bcrypt.hashSync(req.body.password,8)

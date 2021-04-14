@@ -23,17 +23,16 @@ export class SignupComponent implements OnInit {
   onSubmit(formRef){
     
     this.submitted=true;
-    if(!formRef.invalid){
       console.log("signup details",formRef)
 
       this.us.saveUserData(formRef).subscribe(
         res=>{
-          if(res['message']="Registration done successfully"){
+          if(res['message']=="Registration done successfully"){
             this.toastr.success("Account created successfully...Login to continue!!!")
             this.router.navigateByUrl("/loginform")
           }
           else{
-            this.toastr.error("Please enter details to signup")
+            this.toastr.error(res['message'])
           }
         },
         err=>{
@@ -43,6 +42,6 @@ export class SignupComponent implements OnInit {
       )
      
     }
-    }
+  
    
 }

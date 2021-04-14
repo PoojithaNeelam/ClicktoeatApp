@@ -2,14 +2,14 @@
     <img style="height: 710px;  " src="../../assets/signupbgimg.jpg" class="card-img" alt="Background-Image">
     
     <div class="card-img-overlay">-->
-     <div class="bg-img">
+        <div class="bg-img">
       <div class="container-fluid">
 <div class="row">
-   <div class="col-sm-3"></div>
-    <div  class="col-sm-6 m-3 ">
-        <form action="/action_page.php" #formRef='ngForm' (ngSubmit)="onSubmit(formRef.value)" class=" form row g-3 mx-auto" >
+   <div class="col-sm-6"></div>
+    <div  class="col-sm-6">
+        <form action="/action_page.php" #formRef='ngForm' (ngSubmit)="formRef.form.valid && onSubmit(formRef.value)" class="form mt-5 m-4 pt-5" >
             
-                <h2  style="font-family: 'Dancing Script', cursive; font-size:40px;" class=" text-center text-white">Register</h2>
+                <h2  style="font-family: 'Dancing Script', cursive; font-size:40px;" class=" text-center text-white mb-3">Register</h2>
            
            <!-- email-->
             <div class="form-floating mb-2">
@@ -20,10 +20,10 @@
             </div>
             <!--email validation-->
            <div class="text-danger" *ngIf="(ref1.touched || formRef.submitted) && (ref1.errors?.required)">
-                Please give the email.
+                *Enter your email.
             </div>
             <div class="text-danger" *ngIf="(ref1.touched || formRef.submitted) && (ref1.errors?.pattern)">
-                Give email like example:xyz3@gmail.com
+                *Give an email like example:xyz3@gmail.com
             </div>
             <!--username-->
            <div class="form-floating mb-2">
@@ -35,25 +35,25 @@
        
        <!-- user name validation-->
         <div class="text-danger" *ngIf="(ref2.touched || formRef.submitted) && (ref2.errors?.required)">
-            Please give the user name.
+            *Enter your name
         </div>
        <!-- password-->
       
 
         <div class="form-floating mb-2">
          
-          <input type="password" id="pw" class="form-control" name="password" placeholder="Create password " required pattern="(^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$)" minlength="8" #ref3="ngModel" ngModel autocomplete="off">
+          <input type="password" id="pw" class="form-control" name="password" placeholder="Create password " required pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$' minlength="8" #ref3="ngModel" ngModel autocomplete="off">
           <label for="pw" class="text-dark" >Password</label>
       </div>
         <!-- password validations-->
         <div class="text-danger" *ngIf="(ref3.touched || formRef.submitted) && (ref3.errors?.required)">
-            Please give the password.
+            *Enter your password
         </div>
         <div class="text-danger" *ngIf="(ref3.touched || formRef.submitted) && (ref3.errors?.pattern)">
-           Password must include one capital and one digit.
+           *Password must include one capital and one digit.
         </div>
         <div class="text-danger" *ngIf="(ref3.touched || formRef.submitted) && (ref3.errors?.minlength)">
-            Please enter minimum 8 characters 
+           *Enter minimum of 8 characters 
         </div>
         
     
@@ -67,38 +67,37 @@
         </div>
         <!--mobile number validation-->
         <div class="text-danger" *ngIf="(ref4.touched || formRef.submitted) && (ref4.errors?.required)">
-            Please give the mobile number
+            *Enter your mobilenumber
         </div>
         <div class="text-danger" *ngIf="(ref4.touched || formRef.submitted) && (ref4.errors?.maxlength)">
-            Mobile number cannot be more than 10 digits.
+            *Mobile number cannot be more than 10 digits.
         </div>
         <div class="text-danger" *ngIf="(ref4.touched || formRef.submitted) && (ref4.errors?.minlength)">
-            Mobile number should be atleast 10 digits.
+            *Mobile number should be atleast 10 digits.
         </div>
         
         <div class="form-floating mb-2">
           
-            <button  type="submit" class="btn col-12 text-white py-2 fs-4"  style="background-color: #67f5b5;" (ngSubmit)="onSubmit(formRef)">Register</button>
+            <button  type="submit" class="btn col-12 text-dark py-2 fs-4"  style="background-color: #67f5b5;" (ngSubmit)="onSubmit(formRef)">Register</button>
              
           </div>
             
             <div class="row">
   
-              <div class="col-sm-4"></div>
-              <div class="col-sm-4 ">
-                <p class="text-dark text-center text-white">Already have an account?Please login here....</p>
-            <button  class="btn btn-warning mb-3 text-white ms-5" (click)="login()">Login here!!</button>
+              <div class="col">
+                <p class="text-dark text-center text-white">Already have an account? Please login here....</p>
+            <div class="text-center">
+                <button type="button" class="btn btn-warning mb-3 text-white" (click)="login()">Login here!!</button>
+            </div>
          </div>
-              <div class="col-sm-4"></div>
-              
-              
+             
             
             </div> 
     
         </form>
          
     </div>
-    <div class="col-sm-3"></div>
+    
    
 </div>
 </div>

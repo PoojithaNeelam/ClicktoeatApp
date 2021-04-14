@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
           else{
             console.log(res["reason"])
 
-            this.toastr.error("User not found")
+            this.toastr.error("Invalid credentials")
           }
         },
         err=>{

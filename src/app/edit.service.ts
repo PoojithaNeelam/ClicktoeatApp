@@ -30,7 +30,6 @@ fooditem:any;
 
     console.log("Updated food item in service",foodObj)
     return  this.hc.put("/food/updateFood", foodObj);
-
   }
 
   deleteFoodItem(foodObj:any):Observable<any>

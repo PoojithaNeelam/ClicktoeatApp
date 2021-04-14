@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddfooditemComponent } from './addfooditem/addfooditem.component';
 import { AdminhomepageComponent } from './adminhomepage/adminhomepage.component';
 import { AppComponent } from './app.component';
+import { BeweragesComponent } from './bewerages/bewerages.component';
 import { BillingaddressComponent } from './billingaddress/billingaddress.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ClicktoeatComponent } from './clicktoeat/clicktoeat.component';
@@ -52,6 +53,7 @@ const routes: Routes = [
   {path:"vegcategory",component:VegcategoryComponent},
   {path:"nonvegcategory",component:NonvegcategoryComponent},
   {path:"icecreamcategory",component:IcecreamComponent},
+  {path:"bewerages",component:BeweragesComponent},
   {path:"userprofile",component:UserprofileComponent},
   {path:"",redirectTo:"/clicktoeat",pathMatch:"full"}
  

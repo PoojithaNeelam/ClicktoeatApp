@@ -36,6 +36,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { BillingaddressComponent } from './billingaddress/billingaddress.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { BeweragesComponent } from './bewerages/bewerages.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     IcecreamComponent,
     UserprofileComponent,
     BillingaddressComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    BeweragesComponent
   ],
   imports: [
     BrowserModule,
