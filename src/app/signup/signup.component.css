@@ -8,7 +8,7 @@
 
 .bg-img {
   /* The image used */
-  background-image: url("../../assets/signupbgimg.jpg");
+  background-image: url("../../assets/bgimage2.jpeg");
 
   /* Control the height of the image */
   height: 800px;
@@ -51,12 +51,12 @@
             transform: translateX(50px);
   }
 }
-
+/*
 #em,#un,#pw,#num{
   opacity:0.3;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ 
   color: #000;
   opacity:1;
-}
+}*/

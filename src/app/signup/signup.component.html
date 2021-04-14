@@ -15,7 +15,7 @@
             <div class="form-floating mb-2">
                   
                   <input type="email" id="em" class="form-control" name="email" placeholder="Enter Mail " required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" #ref1="ngModel" ngModel autocomplete="off">
-                  <label for="em" class="text-white" >Email</label>
+                  <label for="em" class="text-dark" >Email</label>
 
             </div>
             <!--email validation-->
@@ -30,7 +30,7 @@
            
           
             <input type="text" id="un" class="form-control" name="username" placeholder="User Name" required #ref2="ngModel" ngModel autocomplete="off">
-            <label for="un" class=" text-white" >User Name</label>
+            <label for="un" class=" text-dark" >User Name</label>
         </div>
        
        <!-- user name validation-->
@@ -43,7 +43,7 @@
         <div class="form-floating mb-2">
          
           <input type="password" id="pw" class="form-control" name="password" placeholder="Create password " required pattern="(^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$)" minlength="8" #ref3="ngModel" ngModel autocomplete="off">
-          <label for="pw" class="text-white" >Password</label>
+          <label for="pw" class="text-dark" >Password</label>
       </div>
         <!-- password validations-->
         <div class="text-danger" *ngIf="(ref3.touched || formRef.submitted) && (ref3.errors?.required)">
@@ -62,7 +62,7 @@
        <div class="form-floating mb-2">
              <input type="text" id="num" class="form-control" name="mobilenumber" placeholder="Mobile Number" required maxlength="10" minlength="10" #ref4="ngModel" ngModel autocomplete="off">
 
-             <label for="num" class="form-label text-white" style="color: rgb(19, 17, 18);">Mobile Number</label>
+             <label for="num" class="form-label text-dark" style="color: rgb(19, 17, 18);">Mobile Number</label>
            
         </div>
         <!--mobile number validation-->
