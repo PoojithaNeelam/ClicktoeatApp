@@ -15,7 +15,7 @@ export class EditfoodComponent implements OnInit {
   constructor(private es:EditService,private toastr:ToastrService) { }
 
 
-  menuArray=["Vegetarian","Non-vegetarian","Ice-Cream"]
+  menuArray=["Vegetarian","Non-vegetarian","Ice-Cream","Beverages"]
 
   ngOnInit(): void {
 
