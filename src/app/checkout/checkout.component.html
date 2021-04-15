@@ -22,10 +22,15 @@
                         </div>
                         <div class="form-group"> 
                             <label for="cnum">Card Number</label>
-                            <input required  maxlength="12" type="number" class="form-control" id="cnum"  name="cnum" ngModel #cnum="ngModel">
+                            <input required  maxlength="12" type="text" class="form-control" id="cnum"  name="cnum" ngModel #cnum="ngModel">
                             <div class="text-danger" *ngIf="isSubmitted||cnum.touched && (cnum.dirty || cnum.invalid)">
                                 <div *ngIf="cnum.errors?.required">
                                     Card Number is Required
+                                </div>
+                            </div>
+                            <div class="text-danger" *ngIf="isSubmitted||cnum.touched && (cnum.dirty || cnum.invalid)">
+                                <div *ngIf="cnum.errors?.maxlength">
+                                   Maximum card lenght is 12 digits
                                 </div>
                             </div>
                         </div>
