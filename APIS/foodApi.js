@@ -144,7 +144,8 @@ foodApiObj.get("/geticecreamitems",errorhandler(async (req,res)=>{
 }))
 
 foodApiObj.get("/getbewerageitems",errorhandler(async (req,res)=>{
-    let result=await Food.find({$and:[{foodtype:"Bewerages"},{status:true}]})
+    console.log(req.body)
+    let result=await Food.find({$and:[{foodtype:"Beverages"},{status:true}]})
     res.send({message:result})
 }))
 

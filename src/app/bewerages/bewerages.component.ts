@@ -39,7 +39,6 @@ export class BeweragesComponent implements OnInit {
   }
   bewerages(){
     this.router.navigateByUrl("/bewerages")
-    
   }
 
 

@@ -68,5 +68,8 @@ export class VegcategoryComponent implements OnInit {
   icecream(){
     this.router.navigateByUrl("/icecreamcategory")
   }
+  bewerages(){
+    this.router.navigateByUrl("/bewerages")
+  }
 
 }

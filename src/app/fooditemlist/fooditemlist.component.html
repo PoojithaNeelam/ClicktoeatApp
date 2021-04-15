@@ -1,99 +1,58 @@
-
-                 
-<!--<nav style="background-color: #021e2c;" class="navbar navbar-expand-md navbar-light ">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2">
-                  
-                    <input  type="text" placeholder="search here" class="form-control mt-2 "  [(ngModel)]="searchText">
-              
-                </div>
-                <div class="col-sm-10"> 
-                    <div  class="collapse navbar-collapse justify-content-end"  id="navbarcategory">
-                    <ul  class="navbar-nav  " >
-                       
-                     
-                      <li style="margin-inline-end: 100px;" class="nav-item">
-                        <a style="font-weight: normal;font-family: Georgia, 'Times New Roman', Times, serif; " class="nav-link fs-4 text-white"  (click)="veg()">Veg</a>
-                      </li>
-                      <li style="margin-inline-end: 100px;" class="nav-item">
-                        <a style=" font-weight: normal; font-family: Georgia, 'Times New Roman', Times, serif;" class="nav-link fs-4 text-white" (click)="nonveg()" >Non-Veg</a>
-                      </li>
-                      <li style="margin-inline-end: 100px;" class="nav-item">
-                        <a style=" font-weight: normal; font-family: Georgia, 'Times New Roman', Times, serif;" class="nav-link fs-4 text-white" (click)="icecream()" >Ice-creams</a>
-                      </li>
-                     
-                    </ul>
-                    <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarcategory" aria-controls="navbarcategory" aria-expanded="false" aria-label="Toggle navigation">
-                    <span  class="navbar-toggler-icon"></span>
-                  </button>
-                 
-                </div>
-                  </div>
-           
-                      </div>
-                 </div>
-          
-         
-      
-      </nav>-->
 <app-carousel></app-carousel>
-
-<!--<div class="container my-5">
-    <div class="row  row-cols-md-3 row-cols-sm-2 row-cols-2 g-3 g-md-5">
-        <div class="col" *ngFor = "let fooditem of foodArray | search : searchItem">
-          <div *ngIf="fooditem.status"
-            <div class="card">
-                <div class="card-body text-center">
-                    <img [src]="fooditem.photo" alt = "photo" height="220px"  class="card-img-top">
-                    <div class="card-title  fw-bold my-2">Food Item Name:{{fooditem.fooditemname}}</div>
-                    <div class="card-text  fw-bold my-2">Restaurant Name:{{fooditem.restname}}</div>
-                    <div class="card-text  fw-bold my-2">Price: &#8377;{{fooditem.Price}}</div>
-                    <button class="btn btn-warning m-2" (click)="addtocart(food)">Add</button>
-                </div>
-              </div>
+    <div style=" background-color: honeydew;" class="row">
+      <div class="col-sm-6"><a style="font-family: Lobster; font-size: 40px" class="navbar-brand nav-link text-dark text-center">Welcome ,{{username}}</a></div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-4">
+        <!--<div class="input-icons">
+        <i class="fa fa-search" aria-hidden="true"></i> <input type="text" placeholder="Search the food item.." class="form-control mt-2 col-12 mx-auto border border-dark" style="width:300px; height: 40px;" [(ngModel)]="searchText">
+      </div>-->
+      <div class="wrap">
+        <div class="search">
+           <input type="text" class="searchTerm" placeholder="Search food item.." [(ngModel)]="searchText">
+           <button type="submit" class="searchButton">
+             <i class="fa fa-search"></i>
+          </button>
         </div>
-  </div>
-    </div>-->
-    <a style="font-family: Lobster; font-size: 30px;" class="navbar-brand nav-link text-dark text-center">Welcome ,{{username}}</a>
-<div class="container my-5">
-  <div class="row">
-    
-    <div class="col-sm-3"  style="background-color : #021e2c; height: 400px;">
-                <nav class="navbar navbar-expand-md navbar-light">
-                <ul class="navbar-nav row">
-                    <input type="text" placeholder="search here" class="form-control mt-2 col-12 mx-auto" style="width:200px;" [(ngModel)]="searchText">
-                    <a class="btn text-white col-12 mt-1" (click)="veg()">Vegetarian</a>
-                    
-                    <a class="btn text-white col-12" (click)="nonveg()">Non-Vegetarian</a>
-                    <a class="btn text-white col-12" (click)="icecream()">Desserts</a>
-                    <a class="btn text-white col-12" (click)="bewerages()">Bewerages</a>
-
-
-                    <!--<a class="btn text-white col-12">Starters</a>
-                    <a class="btn text-white col-12">Fastfood</a>-->
-                </ul>
-                </nav>
-            </div>
- 
-    <div class="col-sm-9">
-      <div class="container my-5">
-        <div class="row  row-cols-md-2 row-cols-sm-1 row-cols-2 g-3 g-md-5">
-            <div class="col" *ngFor = "let fooditem of foodArray | filter:searchText">
-                <div *ngIf="fooditem.status">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <img [src]="fooditem.photo" alt = "photo" height="220px"  class="card-img-top">
-                        <div class="card-title  fw-bold my-2">{{fooditem.fooditemname}}</div>
-                        <div class="card-text  fw-bold my-2">{{fooditem.restname}}</div>
-                        <div class="card-text  fw-bold my-2"> &#8377;{{fooditem.Price}}</div>
-                        <button class="btn btn-warning m-2" (click)="addtocart(fooditem)">Add</button>
-                    </div>
-                  </div>
-            </div>
-        </div>
-      </div>
+     </div>
       </div>
     </div>
-  </div>
-</div>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-sm-2"  style="background-color : #021e2c; height: 500px;">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                    <ul class="navbar-nav row">
+                        <a class="btn text-white col-12 mt-1" (click)="veg()"><i class="fa fa-seedling" style="color: blanchedalmond;"></i>Vegetarian</a>
+                        <a class="btn text-white col-12" (click)="nonveg()"><i class="fa fa-seedling" style="color: blanchedalmond;"></i>Non-Vegetarian</a>
+                        <a class="btn text-white col-12" (click)="icecream()"><i class="fa fa-pie"></i>Desserts</a>
+                        <a class="btn text-white col-12" (click)="bewerages()"><i class="fa fa-pie"></i>Beverages</a>
+
+                    </ul>
+                    </nav>
+                </div>
+     
+        <div class="col-sm-10">
+          <div class="container mt-3">
+            <div class="row">
+                <div class="col-sm-4" *ngFor = "let fooditem of foodArray | filter:searchText">
+                    <div *ngIf="fooditem.status">
+                    <div class="card mb-3 border-info">
+                        <div class="card-body text-center">
+                            <img [src]="fooditem.photo" alt = "photo" height="220px"  class="card-img-top">
+                            <div class="card-title my-2" style="font-family: Lobster; font-size: 20px;">{{fooditem.fooditemname}}</div>
+                            <div class="card-text my-2" style="font-family: 'Dancing Script', cursive; font-size: larger;">{{fooditem.restname}}</div>
+                            <div class="card-text  fw-bold my-2" style="font-family: 'Dancing Script', cursive; font-size: larger;">Cost: &#8377;{{fooditem.Price}}</div>
+                            <div class="row">
+                              <div class="col-sm-8"></div>
+                              <div class="col-sm-4"><button class="btn m-2" style="background-color: rgb(53, 221, 151);" (click)="addtocart(fooditem)">Add</button>
+                              </div>
+                            </div>
+                             </div>
+                      </div>
+                </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    

@@ -1,14 +1,14 @@
 <!-- billing address-->
-<div class="container">
+<div class="container-fluid" style="background-color: #c4dfe6;">
     <div class="row">
-       
-        <div class="col-sm-6">
-            <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)" class="form container m-5" >
+       <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <form #formRef="ngForm" (ngSubmit)="formRef.form.valid && onSubmit(formRef.value)" class="form container m-5" style="border-right: 4px solid #fff;border-left: 4px solid #fff;">
                 <h4 class="text-center" style="font-family: 'Dancing Script', cursive; font-size:30px;">Billing Address</h4>
             
                 <!--name-->
                 <div class="d-flex">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" style="padding-right: 5px;">
                        <!--First Name-->
                         <div class="form-floating mb-2">
                             <input type="text" class="form-control" id="fn" name="firstname" ngModel required #ref1="ngModel">
@@ -21,7 +21,7 @@
                         </div>
                       
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" style="padding-left: 5px;">
                         <!--Last Name-->
                         <div class="form-floating mb-2">
                             <input type="text" class="form-control" id="ln" name="lastname" ngModel required #ref2="ngModel">
@@ -88,13 +88,17 @@
                  <div class="text-danger" *ngIf="(ref7.touched || formRef.submitted) && (ref7.errors?.required)">
                     Pincode is required
                 </div>
-
+               
                 <!--submit button-->
-                <button class="btn btn-warning" type="submit" (ngSubmit)="onSubmit(formRef)">Continue to Checkout..</button>
+                <div class="text-center">
+                    <button class="btn btn-warning" type="submit" (ngSubmit)="onSubmit(formRef)">Continue to Checkout..</button>
+
+
+                </div>
 
 
             </form>
         </div>
-        <div class="col-sm-6"></div>
+        <div class="col-sm-2"></div>
     </div>
 </div>

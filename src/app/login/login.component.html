@@ -80,19 +80,19 @@
       <div class="row">
           <div class="col-sm-6">  </div>
           <div class="col-sm-6">
-                  <form #formRef="ngForm"  class="form mt-5 m-4 pt-5" (ngSubmit)="onSubmit(formRef)" action="/action_page.php" >
+                  <form #formRef="ngForm"  class="form mx-4" (ngSubmit)="onSubmit(formRef)" action="/action_page.php" >
                     <!-- (ngSubmit)="ref.form.valid && onSubmit(ref)" -->
                     <h4 class="text-center text-white" style="font-family: 'Dancing Script', cursive;
                     font-size:40px;">Good food never wait</h4>
               
                   <div class="form-check">
                       <input class="form-check-input " type="radio" id="user" name="usertype" value="user" ngModel>
-                      <label style="font-weight: bolder;" class="form-check-label text-white" for="user">User</label>
+                      <label style="font-weight: bolder; font-family: 'Dancing Script', cursive; font-size: larger;" class="form-check-label text-white" for="user">User</label>
                   </div>
             
                   <div class="form-check">
                       <input class="form-check-input " type="radio" id="admin"  name="usertype" value="admin" ngModel checked>
-                      <label style="font-weight: bolder;" class="form-check-label text-white" for="admin">Admin</label>
+                      <label style="font-weight: bolder; font-family: 'Dancing Script', cursive; font-size: larger;" class="form-check-label text-white" for="admin">Admin</label>
                   </div>
               
                   <!-- Name -->
@@ -131,12 +131,12 @@
               
                   </div>
               
-                  <button class="btn col-12 text-dark py-2 fs-4 mb-3" style="background-color: #67f5b5;">Login</button>
+                  <button class="btn col-12 text-dark py-2 fs-4 mb-3" style="background-color: #67f5b5; font-family: 'Dancing Script', cursive; font-size: x-large;">Login</button>
               
                   <div class="row">
   
                     <div class="col">
-                      <p class="text-white text-center">Don't have an account? Please Register First.</p>
+                      <p class="text-white text-center">Don't have an account? Create an account...</p>
                       <div class="text-center">
                         <button class="btn text-white btn-warning" (click)="register()">Register here!!</button>
                       </div>

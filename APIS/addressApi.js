@@ -49,7 +49,7 @@ addressApiObj.post("/createaddress",errorhandler(async (req,res)=>{
     }
     else
     {
-        res.send({message:"Address already existed!!!"})
+        res.send({message:"Enter valid details to continue!!!"})
     }
    
 }))

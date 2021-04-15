@@ -29,6 +29,9 @@ export class BillingaddressComponent implements OnInit {
           this.toastr.success("Address added for billing")
           this.router.navigateByUrl("/checkout")
         }
+        else{
+          this.toastr.error(res['message'])
+        }
       },
       err=>{
         this.toastr.error("Something went wrong in adding billing address!!!")

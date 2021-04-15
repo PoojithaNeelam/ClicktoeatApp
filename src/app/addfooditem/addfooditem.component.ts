@@ -13,7 +13,7 @@ export class AddfooditemComponent implements OnInit {
 
   constructor( private us:UserService, private router:Router,private toastr:ToastrService) { }
 
-  menuArray=["Vegetarian","Non-vegetarian","Desserts","Bewerages"]
+  menuArray=["Vegetarian","Non-vegetarian","Desserts","Beverages"]
 
   ngOnInit(): void {
   }

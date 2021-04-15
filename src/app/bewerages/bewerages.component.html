@@ -1,24 +1,36 @@
-<a style="font-family: Lobster; font-size: 30px;" class="navbar-brand nav-link text-dark text-center">Welcome ,{{username}}</a>
-<div class="container my-5">
+<div style=" background-color: honeydew;" class="row">
+  <div class="col-sm-6"><a style="font-family: Lobster; font-size: 40px" class="navbar-brand nav-link text-dark text-center">Welcome ,{{username}}</a></div>
+  <div class="col-sm-2"></div>
+  <div class="col-sm-4">
+    <div class="wrap">
+      <div class="search">
+         <input type="text" class="searchTerm" placeholder="Search food item.." [(ngModel)]="searchText">
+         <button type="submit" class="searchButton">
+           <i class="fa fa-search"></i>
+        </button>
+      </div>
+   </div> </div>
+</div>
+<div class="container mt-3">
   <div class="row">
     
     <div class="col-sm-3"  style="background-color : #021e2c; height: 400px;">
                 <nav class="navbar navbar-expand-md navbar-light">
                 <ul class="navbar-nav row">
-                    <input type="text" placeholder="search here" class="form-control mt-2 col-12 mx-auto" style="width:200px;" [(ngModel)]="searchText">
                     <a class="btn text-white col-12 mt-1" (click)="veg()">Vegetarian</a>
                     
                     <a class="btn text-white col-12" (click)="nonveg()">Non-Vegetarian</a>
                     <a class="btn text-white col-12"(click)="icecream()">Desserts</a>
+                    <a class="btn text-white col-12" (click)="bewerages()">Beverages</a>
+
                     <!--<a class="btn text-white col-12">Starters</a>
                     <a class="btn text-white col-12">Fastfood</a>-->
-                    <a class="btn text-white col-12">Bewerages</a>
                 </ul>
                 </nav>
             </div>
  
     <div class="col-sm-9">
-      <div class="container my-5">
+      <div class="container m5-3">
         <div class="row  row-cols-md-2 row-cols-sm-1 row-cols-2 g-3 g-md-5">
             <div class="col" *ngFor = "let fooditem of beweragesArray | filter:searchText">
                 <div *ngIf="fooditem.status">
@@ -28,7 +40,7 @@
                         <div class="card-title  fw-bold my-2">{{fooditem.fooditemname}}</div>
                         <div class="card-text  fw-bold my-2">{{fooditem.restname}}</div>
                         <div class="card-text  fw-bold my-2">&#8377;{{fooditem.Price}}</div>
-                        <button class="btn btn-warning m-2" (click)="addtocart(fooditem)">Add</button>
+                        <button class="btn m-2" style="background-color: rgb(106, 168, 70);" (click)="addtocart(fooditem)">Add to cart</button>
                     </div>
                   </div>
             </div>
