@@ -17,9 +17,9 @@ export class AdminhomepageComponent implements OnInit {
   
 
   addfooditem(){
-    this.router.navigateByUrl("/addfooditem")
+    this.router.navigateByUrl("addfooditem")
   }
   readfooditem(){
-    this.router.navigateByUrl("/readfooditem")
+    this.router.navigateByUrl("readfooditem")
   }
 }

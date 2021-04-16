@@ -2,16 +2,9 @@
   <div class="col-sm-6"><a style="font-family: Lobster; font-size: 40px" class="navbar-brand nav-link text-dark text-center">Welcome ,{{username}}</a></div>
   <div class="col-sm-2"></div>
   <div class="col-sm-4">
-    <div class="wrap">
-      <div class="search">
-         <input type="text" class="searchTerm" placeholder="Search food item.." [(ngModel)]="searchText">
-         <button type="submit" class="searchButton">
-           <i class="fa fa-search"></i>
-        </button>
-      </div>
-   </div>
+    <input type="text" placeholder="search here" class="form-control mt-2 col-12 mx-auto" style="width:200px;" [(ngModel)]="searchText">
+                   
     </div>
-</div>
    <div class="container my-5">
   <div class="row">
     

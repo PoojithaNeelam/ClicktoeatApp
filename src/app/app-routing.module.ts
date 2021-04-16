@@ -35,8 +35,8 @@ const routes: Routes = [
     {path:"loginform",component:LoginComponent}
   ]},
   {path:"adminhomepage",component:AdminhomepageComponent},
-    {path:"addfooditem",component:AddfooditemComponent},
-    {path:"readfooditem",component:ReadfooditemComponent},
+  {path:"addfooditem",component:AddfooditemComponent},
+  {path:"readfooditem",component:ReadfooditemComponent},
   
   {path:"bgimg",component:DefaultbgimgComponent},
   {path:"userhomepage",component:UserhomepageComponent},

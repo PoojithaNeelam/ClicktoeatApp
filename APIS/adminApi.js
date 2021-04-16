@@ -68,7 +68,7 @@ adminApiObj.post("/loginadmin",errorhandler(async (req,res)=>{
         }
         else{
             //if password matches
-            let signedToken=await jwt.sign({username:req.body.username},process.env.SECRET,{expiresIn : 10000})
+            let signedToken=await jwt.sign({username:req.body.username},process.env.SECRET,{expiresIn : 10})
 
             //send token with response
             res.send({message:"Login success",token:signedToken,username:req.body.username})
