@@ -19,7 +19,7 @@ export class CheckoutComponent implements OnInit {
   onSubmit(formRef){
 
     this.isSubmitted=true;
-    console.log("Payment details",formRef)
+    //console.log("Payment details",formRef)
     this.us.payment(formRef).subscribe(
       res=>{
         if(res['message']=="Payment done successfully"){
@@ -28,6 +28,7 @@ export class CheckoutComponent implements OnInit {
           
         }
         else{
+          this.toastr.error(res['message'])
 
         }
        

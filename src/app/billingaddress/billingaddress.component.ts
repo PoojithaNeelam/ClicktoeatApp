@@ -26,7 +26,7 @@ export class BillingaddressComponent implements OnInit {
     this.us.billingaddress(formRef).subscribe(
       res=>{
         if(res['message']=="Address added successfully!!!"){
-          this.toastr.success("Address added for billing")
+          this.toastr.success("Address added for billing!!!")
           this.router.navigateByUrl("/checkout")
         }
         else{

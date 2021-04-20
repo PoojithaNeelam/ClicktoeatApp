@@ -73,24 +73,12 @@ cartApiObj.get("/getcartitems/:username",validateToken,errorhandler(async(req,re
 
 
 
-/*cartApiObj.put("/updatefood",errorhandler(async (req,res)=>{
-    
-    console.log("cartapi ",req.body)
-    let count=await Cart.updateOne({username:req.body.username},{Price:req.body.Price},{quantity:req.body.quantity})
-    console.log("count is",count)
-    
-
-   
-}))*/
 
 cartApiObj.put("/updatefood/:username",errorhandler(async (req,res)=>{
     await Cart.updateOne({$and:[{username:req.params.username},{foodItemID:req.body.foodItemID}]},{quantity:req.body.quantity,Price:req.body.Price})
-    /*let success = await Cart.find({username:req.params.username})
-    console.log("success is",success)
-    res.send({message:"updated successfully",a:success})*/
     let count=await Cart.find({username:req.body.username})
     res.send({message:"Updated successfully",userObj:count})
-    console.log(count)
+    //console.log(count)
    
 }))
 
@@ -110,17 +98,17 @@ cartApiObj.post("/deletefood",errorhandler(async (req,res)=>{
 cartApiObj.get("/getcartsize/:username",errorhandler(async (req,res)=>{
     //let count=0;
     let usercart=await Cart.find({username:req.params.username})
-    console.log("user cart size",usercart)
+    //console.log("user cart size",usercart)
     
     let userCartsize=usercart.length;
-    console.log(userCartsize)
+    //console.log(userCartsize)
     res.send({cartsize:userCartsize,usercart:usercart})
     let count= 0;
 
     for(let i of carsarray){
         count = count + i.quantity
     }
-    console.log("Cart count is",count)
+    //console.log("Cart count is",count)
     
     res.send({message:count})
 
@@ -141,7 +129,7 @@ cartApiObj.get("/getcartcount/:username",errorhandler(async (req,res)=>{
  
              // push into array
             carsarray.push(success2)
-            console.log("carsarray",carsarray)
+            //console.log("carsarray",carsarray)
 
          }
         

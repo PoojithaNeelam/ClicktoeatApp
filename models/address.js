@@ -1,12 +1,12 @@
 const mongoose=require("mongoose")
 const AddressSchema=new mongoose.Schema({
-    firstname:String,
-    lastname:String,
-    address:String,
-    flatnumber:String,
-    city:String,
-    country:String,
-    pincode:String
+    firstname:{type:String,required:true},
+    lastname:{type:String,required:true},
+    address:{type:String,required:true},
+    flatnumber:{type:String,required:true},
+    city:{type:String,required:true},
+    country:{type:String,required:true},
+    pincode:{type:String,required:true}
 })
 const Address=mongoose.model("address",AddressSchema)
 module.exports=Address

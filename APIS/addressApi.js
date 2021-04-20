@@ -41,16 +41,19 @@ addressApiObj.post("/createaddress",errorhandler(async (req,res)=>{
         pincode:req.body.pincode
     })
 
-    if(await Address.findOne({firstname:req.body.firstname})==null){
+    await addressObjToModel.save()
+    res.send({message:"Address added successfully!!!",addressObjToModel})
+
+    /*if(await Address.findOne({firstname:req.body.firstname})==null){
         await addressObjToModel.save()
-        console.log("Address details in api ",addressObjToModel)
+       console.log("Address details in api ",addressObjToModel)
 
         res.send({message:"Address added successfully!!!",addressObjToModel})
     }
     else
     {
-        res.send({message:"Enter valid details to continue!!!"})
-    }
+        res.send({message:"Address already exists..Please enter another address details!!!"})
+    }*/
    
 }))
 

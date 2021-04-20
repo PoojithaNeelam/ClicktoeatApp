@@ -37,15 +37,21 @@ paymentApiObj.post("/createpayment",errorhandler(async(req,res)=>{
         yyyy:req.body.yyyy
     })
 
-    if(await Payment.findOne({chname:req.body.chname})==null){
+    await paymentObjToModel.save()
+    // console.log("Payment Details in api",paymentObjToModel)
+
+     res.send({message:"Payment done successfully",paymentObjToModel})
+
+
+    /*if(await Payment.findOne({chname:req.body.chname})==null){
         await paymentObjToModel.save()
-        console.log("Payment Details in api",paymentObjToModel)
+       // console.log("Payment Details in api",paymentObjToModel)
 
         res.send({message:"Payment done successfully",paymentObjToModel})
     }
     else{
         res.send({message:"Payment details already existed"})
-    }
+    }*/
 }))
 
 

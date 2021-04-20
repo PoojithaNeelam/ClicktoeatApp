@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(formRef){
     let userObj = formRef.value;
-    console.log(userObj)
+    //console.log(userObj)
 
     if(userObj.usertype=="user"){
 

@@ -21,14 +21,7 @@ export class EditfoodComponent implements OnInit {
 
     this.editFoodObj=this.es.sendFoodItem();
     console.log(this.editFoodObj)
-
-    
-    
-
   }
-
-
-  
 
   addFoodItem(formRef){
     

@@ -29,15 +29,7 @@ export class ReadfooditemComponent implements OnInit {
     )
   }
 
-  /*edit(ref:any)
-  {
-    this.fooditem=ref;
-    this.es.editFoodItem(this.fooditem);
-    this.router.navigateByUrl("/edit");
-    console.log("edit item in ts file",this.fooditem)
-
-  }*/
-
+ 
   edit(ref:any){
     this.fooditem=ref;
     this.es.editFoodItem(this.fooditem);
@@ -48,9 +40,7 @@ export class ReadfooditemComponent implements OnInit {
   
   delete(ref:any)
   {
-    //let index = this.foodArray.findIndex(x => x == this.fooditem);
-    //this.foodArray.splice(index,1)
-    this.fooditem=ref;
+     this.fooditem=ref;
     ref.status=false;
     this.es.deleteFoodItem(ref).subscribe();
     //console.log(ref)

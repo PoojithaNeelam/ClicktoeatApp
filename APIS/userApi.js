@@ -26,31 +26,8 @@ userApiObj.use(exp.json())
 require("dotenv").config()
 
 
-//create user
-/*userApiObj.post("/createuser",validateToken, errorhandler(async (req,res)=>{
-
-console.log(req.body)
-    let hashedpassword=await bcrypt.hashSync(req.body.password,8)
-    let userObjtoModel=new User({
-        email:req.body.email,
-        username:req.body.username,
-        password:hashedpassword,
-        mobilenumber:req.body.mobilenumber
-    })
-
-    if(await User.findOne({username:req.body.username})==null){
-        await userObjtoModel.save()
-
-        res.send({message:"Registration done successfully"})
-    }
-    else{
-        res.send({message:"You have already registered. Login to continue!"})
-    }
-
-}))*/
-
 userApiObj.post("/createuser",errorhandler(async (req,res)=>{
-    console.log("Create user details of",req.body)
+//    console.log("Create user details of",req.body)
     let userFromDb=await User.findOne({username:req.body.username})
 
     if(userFromDb==null){

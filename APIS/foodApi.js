@@ -3,8 +3,6 @@ const exp=require("express")
 
 const foodApiObj=exp.Router()
 
-
-
 //import express-async-handler
 const errorhandler=require("express-async-handler")
 
@@ -54,7 +52,7 @@ foodApiObj.post("/createfood",upload.single('photo'),validateToken,errorhandler(
  req.body=JSON.parse(req.body.foodObj)
  req.body.photo=req.file.path;
 
-console.log(req.body)
+//console.log(req.body)
 
     
     let foodObjtoModel=new Food({
@@ -86,23 +84,8 @@ foodApiObj.get("/getFoodItems", errorhandler(async(req,res)=>{
     res.send({message:foodArray})
 }))
 
-/*foodApiObj.put("/updateFood",errorhandler(async(req,res)=>{
-    console.log("Update Food",req.body)
-    
-    let success=await Food.updateOne({foodItemID:req.body.foodItemID},{
-
-        restname:req.body.restname,
-        RestaurentID:req.body.RestaurentID,
-        foodtype:req.body.foodtype,
-        fooditemname:req.body.fooditemname,
-        Price:req.body.Price
-
-    })
-    console.log("updated foodobj in api",success)
-}))*/
-
 foodApiObj.put("/updateFood",errorhandler(async (req,res)=>{
-    console.log("Update Food ",req.body)
+  //  console.log("Update Food ",req.body)
 
     let success=await Food.updateOne({ foodItemID:req.body.foodItemID},{
 
@@ -114,15 +97,15 @@ foodApiObj.put("/updateFood",errorhandler(async (req,res)=>{
     })
 
    
-    console.log("Updated food item in api",success)
+    //console.log("Updated food item in api",success)
 }))
 
 
 
 foodApiObj.put("/deleteFood",errorhandler(async (req,res)=>{
-    console.log(req.body)
+    //console.log(req.body)
     let success= await Food.updateOne({foodItemID:req.body.foodItemID},{status:req.body.status})
-    console.log(success)
+    //console.log(success)
 }))
 
 
@@ -144,7 +127,7 @@ foodApiObj.get("/geticecreamitems",errorhandler(async (req,res)=>{
 }))
 
 foodApiObj.get("/getbewerageitems",errorhandler(async (req,res)=>{
-    console.log(req.body)
+    //console.log(req.body)
     let result=await Food.find({$and:[{foodtype:"Beverages"},{status:true}]})
     res.send({message:result})
 }))
